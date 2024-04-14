@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ed-Tech Quiz</title>
+<link rel="icon" type="image/x-icon" href="favicon.png">
+
+<style>
+ body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#choices {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin: 10px 0;
+  padding: 12px 24px;
+  background-color: #ff6f61; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff1f1b; 
+}
+
+#feedback {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+}
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Ed-Tech Quiz</h1>
+  <div id="question"></div>
+  <div id="choices"></div>
+  <button id="submitBtn">Submit Answer</button>
+  <div id="feedback"></div>
+</div>
+<script>
+  const quizData = [
+    {
+      question: "Which tag is used to define an unordered list in HTML?",
+      choices: ["<ul>", " <li> ", " <ol>", " <list>"],
+      correctAnswer: "<ul>"
+    },
+    {
+      question: "How do you include inline CSS in HTML?",
+      choices: ["<style>", "<css>", " <script>", "<inline>"],
+      correctAnswer: "<style>"
+    }
+  ];
+  
+  const questionElement = document.getElementById("question");
+  const choicesElement = document.getElementById("choices");
+  const submitButton = document.getElementById("submitBtn");
+  const feedbackElement = document.getElementById("feedback");
+  
+  let currentQuestion = 0;
+  let score = 0;
+  
+  function displayQuestion() {
+    const question = quizData[currentQuestion];
+    questionElement.textContent = question.question;
+    choicesElement.innerHTML = "";
+    question.choices.forEach(choice => {
+      const button = document.createElement("button");
+      button.textContent = choice;
+      button.addEventListener("click", () => checkAnswer(choice));
+      choicesElement.appendChild(button);
+    });
+  }
+  
+  function checkAnswer(answer) {
+    const question = quizData[currentQuestion];
+    if (answer === question.correctAnswer) {
+      score++;
+      feedbackElement.textContent = "Correct!";
+    } else {
+      feedbackElement.textContent = "Incorrect!";
+    }
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+      displayQuestion();
+    } else {
+      showResults();
+    }
+  }
+  
+  function showResults() {
+    questionElement.textContent = "";
+    choicesElement.innerHTML = "";
+    submitButton.style.display = "none";
+    feedbackElement.textContent = `You scored ${score} out of ${quizData.length}.`;
+  }
+  
+  displayQuestion();
+  
+</script>
+</body>
+</html>

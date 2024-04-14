@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doubt</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(36, 35, 35);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; 
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .doubt {
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .doubt label {
+            font-size: 24px;
+            color: #555;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .doubt textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 150px;
+            padding: 10px;
+            font-size: 18px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+
+        .doubt textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            outline: none;
+        }
+
+        .send-doubt {
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .send-doubt:hover {
+            background-color: #0056b3;
+        }
+
+        .doubt-lect {
+            margin-top: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .doubt-para {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .doubt-lect ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .doubt-lect ul li {
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .doubt-lect ul li a {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .doubt-lect ul li a:hover {
+            color: #0056b3;
+        }
+
+        .quest {
+            font-size: 24px;
+            color: #555;
+            margin-top: 30px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="doubt">
+            <h2 style="color: white; text-align: center;">Enter Your Doubt:</h2>
+            <br><br>
+            <textarea name="doubt" id="doubt" rows="8" cols="80" placeholder="Enter your doubt related to covered topics in Lecture!"></textarea>
+        </div>
+        <button class="send-doubt">Send</button>
+        <div class="doubt-lect">
+            <p class="doubt-para">For more knowledge, follow the doubt sessions:</p>
+            <ul>
+                <li><a href="file:///C:/Users/rpnau/Desktop/HackBlitz/New%20folder/htmldoubt.html">Clear HTML doubt</a></li>
+                <li><a href="file:///C:/Users/rpnau/Desktop/HackBlitz/New%20folder/cssdoubt.html">Clear CSS doubt</a></li>
+                <li><a href="file:///C:/Users/rpnau/Desktop/HackBlitz/New%20folder/jsdoubt.html">Clear JavaScript doubt</a></li>
+            </ul>
+        </div>
+        <div class="quest">
+        </div>
+    </div>
+</body>
+</html>
